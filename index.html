@@ -3,6 +3,15 @@
 <head>
   <meta charset="utf-8">
   <title>Elias Wahl</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYWLBYJFFB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYWLBYJFFB');
+  </script>
 </head>
 
 <body>
@@ -28,31 +37,7 @@
     <li>coming soon...</li>
   </ul>
 
-  <!-- visitor counter -->
-  <div
-    id="counter"
-    style="
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      font-size: 10px;
-      color: #666;
-    ">
-    visits: --
-  </div>
-
 </div>
-
-<script>
-fetch('https://api.counterapi.dev/v1/eliulm.github.io/visits')
-  .then(r => r.json())
-  .then(r => {
-    document.getElementById('counter').textContent = 'visits: ' + r.count;
-  })
-  .catch(err => {
-    console.error('Counter fetch error:', err);
-  });
-</script>
 
 </body>
 </html>
