@@ -38,16 +38,19 @@
       font-size: 10px;
       color: #666;
     ">
+    visits: --
   </div>
 
 </div>
 
 <script>
-fetch('https://api.countapi.xyz/hit/eliulm.github.io/visits')
+fetch('https://api.counterapi.dev/v1/eliulm.github.io/visits')
   .then(r => r.json())
   .then(r => {
-    document.getElementById('counter').textContent =
-      'visits ' + r.value;
+    document.getElementById('counter').textContent = 'visits: ' + r.count;
+  })
+  .catch(err => {
+    console.error('Counter fetch error:', err);
   });
 </script>
 
