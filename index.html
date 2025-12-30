@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Elias Wahl</title>
+</head>
+
+<body>
+
+<div style="max-width: 600px; margin: 80px auto;">
+
+  <h1>Elias Wahl</h1>
+
+  <p>
+    I study Computer Science at <a href="https://www.tum.de/en/">TUM</a>
+  </p>
+
+  <p>
+    Interests: GPU programming, quantization, transformers
+  </p>
+
+  <p>
+    Reach me at <a href="mailto:elias.wahl@tum.de">elias.wahl@tum.de</a>
+  </p>
+
+  <h3>Projects:</h3>
+  <ul>
+    <li>coming soon...</li>
+  </ul>
+
+  <!-- hidden visitor counter -->
+  <p id="counter" style="display:none; font-size:12px;"></p>
+
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const show = params.get('stats') === '1';
+
+fetch('https://api.countapi.xyz/hit/eliulm.github.io/visits')
+  .then(r => r.json())
+  .then(r => {
+    if (show) {
+      const el = document.getElementById('counter');
+      el.textContent = 'visits: ' + r.value;
+      el.style.display = 'block';
+    }
+  });
+</script>
+
+</body>
+</html>
