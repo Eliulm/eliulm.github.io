@@ -7,7 +7,7 @@
 
 <body>
 
-<div style="max-width: 600px; margin: 80px auto;">
+<div style="max-width: 600px; margin: 80px auto; position: relative;">
 
   <h1>Elias Wahl</h1>
 
@@ -28,23 +28,26 @@
     <li>coming soon...</li>
   </ul>
 
-  <!-- hidden visitor counter -->
-  <p id="counter" style="display:none; font-size:12px;"></p>
+  <!-- visitor counter -->
+  <div
+    id="counter"
+    style="
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      font-size: 10px;
+      color: #666;
+    ">
+  </div>
 
 </div>
 
 <script>
-const params = new URLSearchParams(window.location.search);
-const show = params.get('stats') === '1';
-
 fetch('https://api.countapi.xyz/hit/eliulm.github.io/visits')
   .then(r => r.json())
   .then(r => {
-    if (show) {
-      const el = document.getElementById('counter');
-      el.textContent = 'visits: ' + r.value;
-      el.style.display = 'block';
-    }
+    document.getElementById('counter').textContent =
+      'visits ' + r.value;
   });
 </script>
 
